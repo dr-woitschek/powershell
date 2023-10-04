@@ -64,7 +64,7 @@
 | $DebugPreference = 'Continue';         | Write-Debug-Meldungen werden sichtbar             |
 | $DebugPreference = 'Inquire';          | Write-Debug wird zu einem Haltepunkt              |
 
-> Set-PSDebug -Trace <int>;
+> Set-PSDebug -Trace \<int>;
 
 Aktiviert bzw. deaktiviert Skript-Debuggingfunktionen, legt die Ablaufverfolgungsebene fest und schaltet den Strict-Modus um.
 * Gibt die Ablaufverfolgungsebene an:
