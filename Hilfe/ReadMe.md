@@ -54,3 +54,12 @@
 | -ge      | größer oder gleich  |
 
 ---
+
+## Debug
+
+| Einstellung                            | Beschreibung                                      |
+| -------------------------------------- | ------------------------------------------------- |
+| $DebugPreference = 'SilentlyContinue'; | Write-Debug wird ignoriert (Normalfall)           |
+| $DebugPreference = 'Stop';             | Write-Debug bricht das Skript ab (nicht sinnvoll) |
+| $DebugPreference = 'Continue';         | Write-Debug-Meldungen werden sichtbar             |
+| $DebugPreference = 'Inquire';          | Write-Debug wird zu einem Haltepunkt              |
