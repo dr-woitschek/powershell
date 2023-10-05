@@ -73,3 +73,29 @@ Aktiviert bzw. deaktiviert Skript-Debuggingfunktionen, legt die Ablaufverfolgung
   * 2 - Skriptzeilen, Variablenzuweisungen, Funktionsaufrufe und Skripts verfolgen
 
 ---
+
+## ToBase64String / FromBase64String
+
+```
+Clear-Host;
+#
+[String]$String = 'abc123';
+#
+[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($String));
+#
+```
+
+> Output: YQBiAGMAMQAyADMA
+
+```
+Clear-Host;
+#
+[String]$String = 'YQBiAGMAMQAyADMA';
+#
+[Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($String));
+#
+```
+
+> Output: abc123
+
+---
