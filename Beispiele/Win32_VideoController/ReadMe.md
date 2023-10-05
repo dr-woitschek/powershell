@@ -46,4 +46,13 @@ Remove-Variable -Name VGA;
 #
 ```
 
+Beispiel-Ausgabe:
+
+```
+Name                 : NVIDIA GeForce RTX 2080 SUPER
+Status               : OK
+VideoModeDescription : 1680 x 1050 x 4294967296 Farben
+VideoProcessor       : NVIDIA GeForce RTX 2080 SUPER
+```
+
 ---
