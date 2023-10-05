@@ -2,9 +2,9 @@
 
 ---
 
-_die Neuesten (Newest) 10 Einträge im Eventlog Anwendungen (Application) ausgeben_
+> _die Neuesten (Newest) 10 Einträge im Eventlog Anwendungen (Application) ausgeben_
 
-Get-EventLog
+**Get-EventLog**
 
 ```
 #
@@ -16,7 +16,7 @@ Get-EventLog -LogName Application -Newest 10 | Format-Table -AutoSize;
 
 <img src="https://github.com/dr-woitschek/powershell/blob/main/Beispiele/EventLog/EventLog_10_Get-EventLog.jpg">
 
-Get-WinEvent
+**Get-WinEvent**
 
 ```
 #
@@ -29,7 +29,7 @@ Get-WinEvent -LogName Application -MaxEvents 10 | Format-Table -AutoSize;
 
 <img src="https://github.com/dr-woitschek/powershell/blob/main/Beispiele/EventLog/EventLog_10_Get-WinEvent.jpg">
 
-WevtUtil.exe:
+**WevtUtil.exe**
 
 ```
 #
