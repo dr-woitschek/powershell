@@ -1,4 +1,4 @@
-**Software Restriction Policy - für Benutzer schreibbare Verzeichnisse finden:**
+**Software Restriction Policy - für Benutzer schreibbare Verzeichnisse im Laufwerk C:\ finden:**
 
 ```
 Clear-Host;
@@ -7,7 +7,6 @@ $ErrorActionPreference = 'SilentlyContinue';
 #
 [String]$executableFilename = 'SRP_TESTING.cmd';
 [String]$Path = 'C:\';
-[String]$Path = 'C:\Users\Public';
 #
 Get-ChildItem -Path $Path -Recurse -Force |
  Where-Object { $_.PSIsContainer } |
