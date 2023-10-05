@@ -6,7 +6,7 @@
 
 ```
 #Requires -RunAsAdministrator
-#Requires -version 5.0
+#Requires -Version 5.0
 #
 Clear-Host;
 #
