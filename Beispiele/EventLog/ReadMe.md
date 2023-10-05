@@ -1,5 +1,7 @@
 **Windows EventLog:**
 
+---
+
 _die Neuesten (Newest) 10 Einträge im Eventlog Anwendungen (Application) ausgeben_
 
 Get-EventLog
@@ -23,6 +25,8 @@ WevtUtil.exe:
 
 ```
 #
-& 'C:\Windows\System32\wevtutil.exe' Query-Events /rd /Count:4 /Format:Text Application;
+& 'C:\Windows\System32\wevtutil.exe' Query-Events /rd /Count:10 /Format:Text Application;
 #
 ```
+
+---
