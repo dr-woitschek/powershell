@@ -80,3 +80,5 @@ New-Guid-V2 -Prefix 'fffa3ff';
 {fffa3ffb-7a0c-435a-8326-1ec42908bdec}
 
 ```
+
+<img src="https://github.com/dr-woitschek/powershell/blob/main/Funktionen/New-Guid-V2/Ausgabe.jpg">
