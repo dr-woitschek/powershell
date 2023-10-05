@@ -14,7 +14,7 @@ Get-EventLog -LogName Application -Newest 10 | Format-Table -AutoSize;
 #
 ```
 
-<img src="https://github.com/dr-woitschek/powershell/tree/main/Beispiele/EventLog/EventLog_10_Get-EventLog.jpg">
+<img src="https://github.com/dr-woitschek/powershell/blob/main/Beispiele/EventLog/EventLog_10_Get-EventLog.jpg">
 
 Get-WinEvent
 
@@ -27,7 +27,7 @@ Get-WinEvent -LogName Application -MaxEvents 10 | Format-Table -AutoSize;
 
 ```
 
-<img src="https://github.com/dr-woitschek/powershell/tree/main/Beispiele/EventLog/EventLog_10_Get-WinEvent.jpg">
+<img src="https://github.com/dr-woitschek/powershell/blob/main/Beispiele/EventLog/EventLog_10_Get-WinEvent.jpg">
 
 WevtUtil.exe:
 
@@ -39,6 +39,6 @@ Clear-Host;
 #
 ```
 
-<img src="https://github.com/dr-woitschek/powershell/tree/main/Beispiele/EventLog/EventLog_10_WevtUtil.exe.jpg">
+<img src="https://github.com/dr-woitschek/powershell/blob/main/Beispiele/EventLog/EventLog_10_WevtUtil.exe.jpg">
 
 ---
