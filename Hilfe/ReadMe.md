@@ -99,3 +99,24 @@ Clear-Host;
 > Output: abc123
 
 ---
+
+## AntiVirusProduct Ausgabe
+
+```
+Clear-Host;
+#
+Get-WmiObject -Namespace 'root\SecurityCenter2' `
+              -Class AntiVirusProduct |
+               ForEach-Object `
+                {
+                 #
+                 Write-Host -Object $('-> '+$_.DisplayName;);
+                 Write-Host -Object $('-> '+$_.pathToSignedReportingExe;);
+                 Write-Host -Object $('');
+                 #
+                };
+#
+```
+
+---
+
