@@ -16,6 +16,27 @@ Get-EventLog -LogName Application -Newest 10 | Format-Table -AutoSize;
 
 <img src="https://github.com/dr-woitschek/powershell/blob/main/Beispiele/EventLog/EventLog_10_Get-EventLog.jpg">
 
+**Get-WinEvent mit XML**
+
+```
+#Requires -RunAsAdministrator
+#Requires -Version 5.0
+#
+Clear-Host;
+#
+[xml]$XML = '
+ <QueryList>
+  <Query Path="Microsoft-Windows-AppXDeployment/Operational">
+   <Select Path="Microsoft-Windows-AppXDeployment/Operational">*</Select>
+  </Query>
+ </QueryList>';
+#
+Get-WinEvent -FilterXml $XML -MaxEvents 10 | Format-Table -AutoSize;
+#
+Remove-Variable -Name XML;
+#
+```
+
 **Get-WinEvent**
 
 ```
@@ -24,7 +45,6 @@ Clear-Host;
 #
 Get-WinEvent -LogName Application -MaxEvents 10 | Format-Table -AutoSize;
 #
-
 ```
 
 <img src="https://github.com/dr-woitschek/powershell/blob/main/Beispiele/EventLog/EventLog_10_Get-WinEvent.jpg">
