@@ -71,14 +71,4 @@ function New-Guid-V2()
 
 Ausgabe:
 
-```
-
-New-Guid-V2;
-{3cf33a05-fb9d-41f9-b6a2-3eb3342cd461}
-
-New-Guid-V2 -Prefix 'fffa3ff';
-{fffa3ffb-7a0c-435a-8326-1ec42908bdec}
-
-```
-
 <img src="https://github.com/dr-woitschek/powershell/blob/main/Funktionen/New-Guid-V2/Ausgabe.jpg">
