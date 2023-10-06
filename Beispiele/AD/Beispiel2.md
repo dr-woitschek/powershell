@@ -61,14 +61,20 @@ UserPrincipalName             :
 
 ```
 
-Umrechnen von pwdLastSet
+Umrechnen von pwdLastSet / ms-Mcs-AdmPwdExpirationTime / msLAPS-PasswordExpirationTime
 
 ```
 [Datetime]::FromFileTime($Daten.pwdLastSet);
-
-Ausgabe:
-Donnerstag, 5. Oktober 2023 06:45:25
+[Datetime]::FromFileTime($Daten.'ms-Mcs-AdmPwdExpirationTime');
+[Datetime]::FromFileTime($Daten.'msLAPS-PasswordExpirationTime');
 ```
 
+Ausgabe:
+
+```
+Donnerstag, 5. Oktober 2023 06:45:25
+Montag, 1. Januar 1601 01:00:00
+Freitag, 3. November 2023 12:45:48
+```
 
 ---
