@@ -36,4 +36,29 @@ catch
 #
 ```
 
+Beispiel-Ausgabe:
+
+```
+[Array]$Computers | Format-List;
+
+DistinguishedName : CN=PC01,OU=Clients,DC=Weiterbildung,DC=Lokal
+DNSHostName       : PC01.Weiterbildung.Lokal
+Enabled           : True
+Name              : PC01
+ObjectClass       : computer
+ObjectGUID        : <GUID>
+SamAccountName    : PC01$
+SID               : <SID>
+UserPrincipalName : 
+
+DistinguishedName : CN=PC02,OU=Clients,DC=Weiterbildung,DC=Lokal
+DNSHostName       : PC02.Weiterbildung.Lokal
+Enabled           : True
+Name              : PC02
+ObjectClass       : computer
+ObjectGUID        : <GUID>
+SamAccountName    : PC02$
+SID               : <SID>
+UserPrincipalName : 
+
 ---
