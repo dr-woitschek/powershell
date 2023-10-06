@@ -57,5 +57,6 @@ ObjectGUID        : <GUID>
 SamAccountName    : PC02$
 SID               : <SID>
 UserPrincipalName : 
+```
 
 ---
