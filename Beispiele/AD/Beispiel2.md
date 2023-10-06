@@ -65,6 +65,9 @@ Umrechnen von pwdLastSet
 
 ```
 [Datetime]::FromFileTime($Daten.pwdLastSet);
+
+Ausgabe:
+Donnerstag, 5. Oktober 2023 06:45:25
 ```
 
 
