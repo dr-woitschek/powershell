@@ -4,19 +4,20 @@
 ```
 Clear-Host;
 #
-[String]$Computer = 'C017222';
+[String]$Computer = 'PC01';
+[Array]$Daten = @();
 #
 try
  {
   #
-  Get-ADComputer -Identity $Computer `
-                 -Property 'LastLogonDate'                  ,
-                           'pwdLastSet'                     ,
-                           'ms-Mcs-AdmPwd'                  ,
-                           'ms-Mcs-AdmPwdExpirationTime'    ,
-                           'msLAPS-EncryptedPassword'       ,
-                           'msLAPS-PasswordExpirationTime'  `
-                 -ErrorAction Stop;
+  [Array]$Daten = Get-ADComputer -Identity $Computer `
+                                 -Property 'LastLogonDate'                  ,
+                                           'pwdLastSet'                     ,
+                                           'ms-Mcs-AdmPwd'                  ,
+                                           'ms-Mcs-AdmPwdExpirationTime'    ,
+                                           'msLAPS-EncryptedPassword'       ,
+                                           'msLAPS-PasswordExpirationTime'  `
+                                 -ErrorAction Stop;
   #
   Write-Verbose -Message ('Get-ADComputer abgeschlossen');
   #
@@ -34,12 +35,15 @@ catch
  };
 #
 Remove-Variable -Name Computer;
+Remove-Variable -Name Daten;
 #
 ```
 
 Beispiel-Ausgabe:
 
 ```
+
+[Array]$Daten | Format-List;
 
 DistinguishedName             : CN=PC01,OU=Clients,DC=Weiterbildung,DC=Lokal
 DNSHostName                   : PC01.Weiterbildung.Lokal
@@ -56,5 +60,12 @@ SID                           : <SID>
 UserPrincipalName             : 
 
 ```
+
+Umrechnen von pwdLastSet
+
+```
+[Datetime]::FromFileTime($Daten.pwdLastSet);
+```
+
 
 ---
