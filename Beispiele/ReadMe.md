@@ -13,6 +13,7 @@
 * [Win32_Processor](https://github.com/dr-woitschek/powershell/tree/main/Beispiele/Win32_Processor/ReadMe.md)
 * [Win32_Product](https://github.com/dr-woitschek/powershell/tree/main/Beispiele/Win32_Product/ReadMe.md)
 * [Win32_VideoController](https://github.com/dr-woitschek/powershell/tree/main/Beispiele/Win32_VideoController/ReadMe.md)
+* [Windows PE erstellen und anpassen](https://github.com/dr-woitschek/powershell/tree/main/Beispiele/Windows_PE/ReadMe.md)
 * [Zertifikate auslesen](https://github.com/dr-woitschek/powershell/tree/main/Beispiele/Zertifikate/ReadMe.md)
 
 ---
