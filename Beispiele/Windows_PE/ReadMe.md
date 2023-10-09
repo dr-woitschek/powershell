@@ -1296,17 +1296,12 @@ AUSFÜHRLICH: Sprache '\Boot\fr-ca' entfernt
 AUSFÜHRLICH:  
 AUSFÜHRLICH: PE addons ...
 AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-NetFX.cab
-AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-Scripting.
-cab
-AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-PowerShell
-.cab
-AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-DismCmdlet
-s.cab
+AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-Scripting.cab
+AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-PowerShell.cab
+AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-DismCmdlets.cab
 AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-WMI.cab
-AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStar
-tup.cab
-AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-wds-tools.
-cab
+AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab
+AUSFÜHRLICH: dism.exe /Add-Package /Image:C:\TEMP\PE\amd64\853121629\mount /PackagePath:C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-wds-tools.cab
 AUSFÜHRLICH:  
 AUSFÜHRLICH: PE AddOn: TOOLS
 AUSFÜHRLICH: Ordner 'C:\TEMP\PE\amd64\853121629\media\TOOLS' erstellt
@@ -1359,6 +1354,121 @@ cd\ "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deploy
     Unmount:   'dism.exe /Unmount-Wim /MountDir:C:\TEMP\PE\amd64\853121629\mount /commit'
     Build USB: 'MakeWinPEMedia /UFD C:\TEMP\PE\amd64\853121629 D:'
     Build ISO: 'MakeWinPEMedia /ISO C:\TEMP\PE\amd64\853121629 PE.iso'
+```
+
+---
+
+> _aus Windows PE Arbeitsverzeichnis nur ISO-Datei erstellen_
+
+```
+#Requires -RunAsAdministrator
+#Requires -Version 5.0
+#
+Clear-Host;
+#
+[String]$Random                    = ('853121629');
+[String]$MainDrive                 = ('C:');
+[String]$WorkingDir                = ($MainDrive+'\TEMP');
+#
+[String]$WinPE_WorkingDir          = ($WorkingDir+'\PE');
+[String]$WinPE_Arch                = ('amd64');
+[String]$WinPE_SAVE                = ($WinPE_WorkingDir+'\'+$WinPE_Arch+'\'+$($Random));
+[String]$WinPE_SAVE_Media          = ($WinPE_SAVE+'\media');
+[String]$WinPE_SAVE_Media_Boot_WIM = ($WinPE_SAVE+'\media\sources\boot.wim');
+[String]$WinPE_SAVE_Mount          = ($WinPE_SAVE+'\mount');
+[String]$WinPE_SAVE_FWFiles        = ($WinPE_SAVE+'\fwfiles');
+#
+[String]$WinPE_ADK                 = (${env:ProgramFiles(x86)}+'\Windows Kits\10\Assessment and Deployment Kit');
+[String]$WinPE_ADK_DT              = ($WinPE_ADK+'\Deployment Tools');
+[String]$WinPE_ADK_DT_DISM         = ($WinPE_ADK_DT+'\'+$WinPE_Arch+'\DISM\Dism.exe')
+[String]$WinPE_ADK_WPE             = ($WinPE_ADK+'\Windows Preinstallation Environment');
+#
+[String]$WinPE_ISO_File            = ($WinPE_WorkingDir+'\Windows_PE.iso');
+#
+[String]$oscdimg_Folder            = $($WinPE_ADK+'\Deployment Tools\'+$WinPE_Arch+'\Oscdimg');
+[String]$oscdimg_exe               = $($oscdimg_Folder+'\Oscdimg.exe');
+[String]$oscdimg_etfsboot          = $($oscdimg_Folder+'\etfsboot.com');
+[String]$oscdimg_efisys            = $($oscdimg_Folder+'\efisys_noprompt.bin');
+#
+Write-Information -InformationAction Continue -MessageData ('ISO-Datei erstellen ...');
+#
+$BootData = '2#p0,e,b"{0}"#pEF,e,b"{1}"' -f "$oscdimg_etfsboot","$oscdimg_efisys";
+#
+$ISO_Bilder = Start-Process -FilePath $oscdimg_exe                                                                           `
+                            -ArgumentList @("-bootdata:$BootData",'-u1','-udfver102',"$WinPE_SAVE_Media","$WinPE_ISO_File")  `
+                            -PassThru                                                                                        `
+                            -Wait                                                                                            `
+                            -NoNewWindow;
+
+if($ISO_Bilder.ExitCode -ne 0)
+ {
+  #
+  Write-Warning -Message ('Fehler beim erstellen der ISO-Datei!');
+  Write-Warning -Message ('ExitCode: '''+$Proc.ExitCode+'''');
+  #
+ }
+  else
+ {
+  #
+  Write-Information -InformationAction Continue -MessageData ('Datei '''+$WinPE_ISO_File+''' erstellt');
+  #
+ };
+#
+[Array]$Alle_Variablen = `
+ @(
+   #
+   'Random'                      ,
+   'MainDrive'                   ,
+   'WorkingDir'                  ,
+   #
+   'WinPE_WorkingDir'            ,
+   'WinPE_Arch'                  ,
+   'WinPE_SAVE'                  ,
+   'WinPE_SAVE_Media'            ,
+   'WinPE_SAVE_Media_Boot_WIM'   ,
+   'WinPE_SAVE_Mount'            ,
+   'WinPE_SAVE_FWFiles'          ,
+   #
+   'WinPE_ADK'                   ,
+   'WinPE_ADK_DT'                ,
+   'WinPE_ADK_DT_DISM'           ,
+   'WinPE_ADK_WPE'               ,
+   #
+   'WinPE_ISO_File'              ,
+   #
+   'oscdimg_Folder'              ,
+   'oscdimg_exe'                 ,
+   'oscdimg_etfsboot'            ,
+   'oscdimg_efisys'              ,
+   #
+   'ISO_Bilder'                  ,
+   #
+   'ScriptLineNumber'            ,
+   'Category'                    ,
+   'Message'                     ,
+   'TargetObject'                ,
+   #
+   'Alle_Variablen'
+   #
+  );
+#
+[Array]$Alle_Variablen |
+ foreach `
+  {
+   #
+   Remove-Variable -Name $_ -ErrorAction SilentlyContinue -Confirm:$False;
+   #
+  };
+#
+Exit;
+#
+```
+
+Beispiel-Ausgabe:
+
+```
+ISO-Datei erstellen ...
+Datei 'C:\TEMP\PE\Windows_PE.iso' erstellt
 ```
 
 ---
