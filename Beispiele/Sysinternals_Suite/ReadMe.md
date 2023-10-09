@@ -3,8 +3,6 @@
 ```
 $VerbosePreference = 'continue';
 #
-# --------------------------------------------------------------------------------------------------- #
-#
 [String]$URI = $('https://download.sysinternals.com/files/SysinternalsSuite.zip');
 [String]$Tmp = $($env:TEMP+'\'+$($URI | Split-Path -Leaf));
 [String]$Prg = $('C:\PSTools');
