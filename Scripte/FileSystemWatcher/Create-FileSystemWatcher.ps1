@@ -38,8 +38,31 @@ Clear-Host;
 [Array]$EventNames = @();
 [Array]$EventNames = @('Created' , 'Changed' , 'Deleted' , 'Renamed');
 #
+[String]$FSW_Pfad = 'C:\TEMP\fsw';
+[String]$FSW_Log  = 'C:\TEMP\fsw.log';
+#
+if(!(Test-Path -Path $FSW_Pfad))
+ {
+  #
+  Write-Warning -Message ('Ordner '''+$FSW_Pfad+''' ist nicht vorhanden');
+  Write-Warning -Message ('Abbruch!');
+  #
+  Exit;
+  #
+ };
+#
+if(!(Test-Path -Path ($FSW_Pfad | Split-Path)))
+ {
+  #
+  Write-Warning -Message ('Logfile-Ordner '''+($FSW_Pfad | Split-Path)+''' ist nicht vorhanden');
+  Write-Warning -Message ('Abbruch!');
+  #
+  Exit;
+  #
+ };
+#
 $FileSystemWatcher                       = New-Object System.IO.FileSystemWatcher;
-$FileSystemWatcher.Path                  = 'C:\TEMP';
+$FileSystemWatcher.Path                  = $FSW_Pfad;
 $FileSystemWatcher.Filter                = '*.*';
 $FileSystemWatcher.IncludeSubdirectories = $True;
 $FileSystemWatcher.EnableRaisingEvents   = $True;
@@ -52,7 +75,7 @@ $FSW_Action = `
   #
   $LogMessage = ((Get-Date -Format 'yyyy-MM-dd HH-mm-ss')+' '+$ChangeType+' '+$FullPath);
   #
-  Add-content -Path 'C:\TEMP\fsw.log' -Value $LogMessage;
+  Add-content -Path $FSW_Log -Value $LogMessage;
   #
   Write-Host -Object $LogMessage;
   #
