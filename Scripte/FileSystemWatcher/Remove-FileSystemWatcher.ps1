@@ -8,7 +8,8 @@
 
   .DESCRIPTION
    Entfernt die Dateisystem-Überwachung
-   Es werden die Events erstellen, umbennen, löschen und ändern entfernt.
+   Es werden die Events "erstellen/Created", "umbennen/Renamed",
+   "löschen/Deleted" und "ändern/Changed" aus dem System entfernt.
 
   .PARAMETER
    -/-

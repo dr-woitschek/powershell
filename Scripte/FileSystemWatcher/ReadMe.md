@@ -11,7 +11,7 @@
    Erstellt eine Dateisystem-Überwachung.
    Es werden die Events "erstellen/Created", "umbennen/Renamed",
    "löschen/Deleted" und "ändern/Changed" im System registriert.
-   Diese Events werden in einer Logdatei gespeichert
+   Diese Events werden in einer Logdatei gespeichert.
 
   .PARAMETER
    -/-

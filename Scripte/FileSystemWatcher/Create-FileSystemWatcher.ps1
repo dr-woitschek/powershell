@@ -8,8 +8,9 @@
 
   .DESCRIPTION
    Erstellt eine Dateisystem-Überwachung.
-   Es werden die Events erstellen, umbennen, löschen und ändern aufgezeichnet.
-   Diese Events werden in einer Logdatei gespeichert
+   Es werden die Events "erstellen/Created", "umbennen/Renamed",
+   "löschen/Deleted" und "ändern/Changed" im System registriert.
+   Diese Events werden in einer Logdatei gespeichert.
 
   .PARAMETER
    -/-
