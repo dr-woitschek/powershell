@@ -11,3 +11,4 @@
 
 - [meine Beispiele](https://github.com/dr-woitschek/powershell/tree/main/Beispiele)
 - [meine Funktionen](https://github.com/dr-woitschek/powershell/tree/main/Funktionen)
+- [meine Scripte](https://github.com/dr-woitschek/powershell/tree/main/Scripte)
