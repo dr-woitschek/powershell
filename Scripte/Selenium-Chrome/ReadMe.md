@@ -168,4 +168,10 @@ Beispiel - Selenium-Chrome starten Login -> Png -> Logout
 
 [Selenium-Chrome.Login.Png.Logout.ps1](https://github.com/dr-woitschek/powershell/blob/main/Scripte/Selenium-Chrome/Selenium-Chrome.Login.Png.Logout.ps1)
 
+Ausgabe:
+
+<img src="https://github.com/dr-woitschek/powershell/blob/main/Scripte/Selenium-Chrome/Selenium-Chrome.Login.Png.Logout.1.png">
+
+<img src="https://github.com/dr-woitschek/powershell/blob/main/Scripte/Selenium-Chrome/Selenium-Chrome.Login.Png.Logout.2.png">
+
 ---
