@@ -24,7 +24,7 @@
    -/-
 
   .NOTES
-   Version: 1.0
+   Version: 1.1
    Author:  dr-woitschek
 
   .LINK
@@ -81,9 +81,11 @@ function New-Selenium-Browser
     #
     [Array]$Downloads = @();
     [Array]$Downloads = @(
-                          #
-                          ('https://www.nuget.org/api/v2/package/Newtonsoft.Json'    , 'lib/net45/Newtonsoft.Json.dll'    , 'Add-Type')  ,
-                          ('https://www.nuget.org/api/v2/package/Selenium.WebDriver' , 'lib/netstandard2.0/WebDriver.dll' , 'Add-Type')
+                          # 
+                          ('https://www.nuget.org/api/v2/package/Newtonsoft.Json'       , 'lib/net45/Newtonsoft.Json.dll'                , 'Add-Type')  ,
+                          ('https://www.nuget.org/api/v2/package/System.Drawing.Common' , 'lib/netstandard2.0/System.Drawing.Common.dll' , 'Add-Type')  ,
+                          ('https://www.nuget.org/api/v2/package/Selenium.WebDriver'    , 'lib/netstandard2.0/WebDriver.dll'             , 'Add-Type')  ,
+                          ('https://www.nuget.org/api/v2/package/Selenium.Support'      , 'lib/netstandard2.0/WebDriver.Support.dll'     , 'Add-Type')
                           #
                          );
     #
