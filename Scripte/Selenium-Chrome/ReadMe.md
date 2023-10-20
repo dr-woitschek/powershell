@@ -35,8 +35,9 @@
 
 ```
 
-Beispiel - Browser starten und beenden
+---
 
+Beispiel - Browser starten und beenden
 
 ```
 
@@ -129,3 +130,37 @@ Remove-Variable -Name BrowserOptions;
 #
 
 ```
+
+---
+
+Beispiel - Möglichkeiten zur Fensteransteuerung
+
+```
+
+$Browser.Manage().Window.Position = '50,0'; # Position von LINKS,OBEN
+$Browser.Manage().Window.Size = '1024,768'; # Fenstergröße
+
+$Browser.Manage().Window.Maximize();        # Fenster maximieren
+$Browser.Manage().Window.Minimize();        # Fenster minimieren
+$Browser.Manage().Window.FullScreen();      # Fenster Vollbild
+
+```
+
+---
+
+Beispiel - Screenshot des Browsers machen
+
+```
+
+#
+[OpenQA.Selenium.ScreenshotImageFormat]$ImageFormat = [OpenQA.Selenium.ScreenshotImageFormat]::Png;
+#
+$Screenshot = [OpenQA.Selenium.Support.Extensions.WebDriverExtensions]::TakeScreenshot($Browser);
+#
+$Screenshot.SaveAsFile($WorkingDir+'\Screenshot.png', $ImageFormat);
+#
+
+```
+
+---
+
