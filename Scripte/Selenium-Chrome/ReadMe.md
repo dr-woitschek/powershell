@@ -164,3 +164,8 @@ $Screenshot.SaveAsFile($WorkingDir+'\Screenshot.png', $ImageFormat);
 
 ---
 
+Beispiel - Selenium-Chrome starten Login -> Png -> Logout
+
+[Selenium-Chrome.Login.Png.Logout.ps1](https://github.com/dr-woitschek/powershell/blob/main/Scripte/Selenium-Chrome/Selenium-Chrome.Login.Png.Logout.ps1)
+
+---
