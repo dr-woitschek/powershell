@@ -34,3 +34,98 @@
 #>
 
 ```
+
+Beispiel - Browser starten und beenden
+
+
+```
+
+#
+[String]$WorkingDir     = 'C:\TEMP\Browser';
+[String]$Url            = 'about:blank';
+[String]$BrowserOptions = '--disable-extensions' , '--ignore-certificate-errors';
+#
+try
+ {
+  #
+  $Browser = New-Selenium-Chrome -WorkingDir $WorkingDir           `
+                                 -BrowserOptions $BrowserOptions   `
+                                 -PrefDownloadDirectory $WorkingDir;
+  #
+  Write-Verbose -Message ('New-Selenium-Chrome ausgeführt');
+  #
+ }
+catch
+ {
+  #
+  if($_.InvocationInfo.ScriptLineNumber) { [String]$ScriptLineNumber = $('[Line: '+$_.InvocationInfo.ScriptLineNumber+']'); };
+  if($_.CategoryInfo.Category)           { [String]$Category         = $('['+$_.CategoryInfo.Category+']');                 };
+  if($_.Exception.Message)               { [String]$Message          = $('Message: '+$_.Exception.Message);                 };
+  #
+  Write-Warning -Message ($ScriptLineNumber+$Category+' Fehler bei New-Selenium-Chrome');
+  Write-Warning -Message ($Message);
+  #
+  $Browser.Quit();
+  #
+  Exit;
+  #
+ };
+#
+try
+ {
+  #
+  $Browser.Manage().Window.Position = '0,0';
+  $Browser.Manage().Window.Size = '1024,768';
+  #
+  $Browser.Url = $Url;
+  $Browser.Navigate() | Out-Null;
+  #
+  Write-Verbose -Message ('Navigate '+$Url+' abgeschlossen');
+  #
+ }
+catch
+ {
+  #
+  if($_.InvocationInfo.ScriptLineNumber) { [String]$ScriptLineNumber = $('[Line: '+$_.InvocationInfo.ScriptLineNumber+']'); };
+  if($_.CategoryInfo.Category)           { [String]$Category         = $('['+$_.CategoryInfo.Category+']');                 };
+  if($_.Exception.Message)               { [String]$Message          = $('Message: '+$_.Exception.Message);                 };
+  #
+  Write-Warning -Message ($ScriptLineNumber+$Category+' Fehler bei Navigate about:blank');
+  Write-Warning -Message ($Message);
+  #
+  $Browser.Quit();
+  #
+  Exit;
+  #
+ };
+#
+Start-Sleep -Seconds 3;
+#
+try
+ {
+  #
+  $Browser.Quit();
+  #
+  Write-Verbose -Message ('Quit abgeschlossen');
+  #
+ }
+catch
+ {
+  #
+  if($_.InvocationInfo.ScriptLineNumber) { [String]$ScriptLineNumber = $('[Line: '+$_.InvocationInfo.ScriptLineNumber+']'); };
+  if($_.CategoryInfo.Category)           { [String]$Category         = $('['+$_.CategoryInfo.Category+']');                 };
+  if($_.Exception.Message)               { [String]$Message          = $('Message: '+$_.Exception.Message);                 };
+  #
+  Write-Warning -Message ($ScriptLineNumber+$Category+' Fehler bei Quit');
+  Write-Warning -Message ($Message);
+  #
+  Exit;
+  #
+ };
+#
+Remove-Variable -Name WorkingDir;
+Remove-Variable -Name Url;
+Remove-Variable -Name BrowserOptions;
+#
+
+```

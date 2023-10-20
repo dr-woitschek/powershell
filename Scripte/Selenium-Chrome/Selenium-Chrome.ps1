@@ -506,7 +506,9 @@ function New-Selenium-Chrome
 try
  {
   #
-  $Browser = New-Selenium-Chrome -WorkingDir $WorkingDir -BrowserOptions $BLA1 -PrefDownloadDirectory $WorkingDir;
+  $Browser = New-Selenium-Chrome -WorkingDir $WorkingDir           `
+                                 -BrowserOptions $BrowserOptions   `
+                                 -PrefDownloadDirectory $WorkingDir;
   #
   Write-Verbose -Message ('New-Selenium-Chrome ausgeführt');
   #
