@@ -299,4 +299,4 @@ function Test-Woitschek
  };
 #
 # Get-Help Test-Woitschek
-Test-Woitschek -Value 'C:\Program Files\7-Zip'
+Test-Woitschek -Value 'C:\Program Files\Windows Defender'
