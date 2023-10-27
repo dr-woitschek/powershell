@@ -6,6 +6,9 @@
 - [Hilfe: Variablen](https://github.com/dr-woitschek/powershell/blob/main/Hilfe/ReadMe.md#variablen)
 - [Hilfe: Vergleichsoperatoren](https://github.com/dr-woitschek/powershell/blob/main/Hilfe/ReadMe.md#vergleichsoperatoren)
 - [Hilfe: Debug](https://github.com/dr-woitschek/powershell/blob/main/Hilfe/ReadMe.md#debug)
+- [Hilfe: Base64](https://github.com/dr-woitschek/powershell/tree/main/Hilfe#tobase64string--frombase64string)
+- [Hilfe: Antivirusproduct](https://github.com/dr-woitschek/powershell/tree/main/Hilfe#antivirusproduct-ausgabe)
+
 
 ---
 
