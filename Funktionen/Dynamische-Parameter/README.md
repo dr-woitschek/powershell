@@ -1,9 +1,7 @@
 
-.Synopsis
- Erstellen eines dynamischen Parameters für Funktionen
+.Synopsis ```Erstellen eines dynamischen Parameters für Funktionen```
 
-.DESCRIPTION
- Der Funktionsaufruf muss mit dem Parameter -Name und -ValidateSet aufgerufen werden.
+.DESCRIPTION ```Der Funktionsaufruf muss mit dem Parameter -Name und -ValidateSet aufgerufen werden.```
 
 .EXAMPLE
 
@@ -59,8 +57,7 @@ begin
 
 ```
 
-.PARAMETER Name
- Namen eingeben
+.PARAMETER Name ```Namen eingeben```
 
 .PARAMETER Type
  Type der Variable festlegen
@@ -78,32 +75,23 @@ begin
  - [hashtable]
    etc.
 
-.PARAMETER Alias
- Legt einen alternativen Namen für den Parameter fest
+.PARAMETER Alias ```Legt einen alternativen Namen für den Parameter fest```
 
-.PARAMETER ValidateSet
- Legt fest, welche exakten Werte (Case insensitiv) ein Argument annehmen darf
+.PARAMETER ValidateSet ```Legt fest, welche exakten Werte (Case insensitiv) ein Argument annehmen darf```
 
-.PARAMETER Mandatory
- Legt fest, der der Parameter NICHT optional ist
+.PARAMETER Mandatory ```Legt fest, der der Parameter NICHT optional ist```
 
-.PARAMETER ParameterSetName
- Legt fest, ob eine Parametergruppe angelegt werden soll
+.PARAMETER ParameterSetName ```Legt fest, ob eine Parametergruppe angelegt werden soll```
 
-.PARAMETER Position
- Legt fest, welche Position der Parameter haben soll
+.PARAMETER Position ```Legt fest, welche Position der Parameter haben soll```
 
-.PARAMETER ValueFromPipelineByPropertyName
- Enthält das eintreffende Objekt eine Eigenschaft vom passenden Datentyp und heißt die Eigenschaft so wie der Parameter, wird der Inhalt dieser Eigenschaft an den Parameter gebunden.
+.PARAMETER ValueFromPipelineByPropertyName ```Enthält das eintreffende Objekt eine Eigenschaft vom passenden Datentyp und heißt die Eigenschaft so wie der Parameter, wird der Inhalt dieser Eigenschaft an den Parameter gebunden.```
 
-.PARAMETER HelpMessage
- Angabe eines Hilfetextes zum Parameter
+.PARAMETER HelpMessage ```Angabe eines Hilfetextes zum Parameter```
 
-.INPUTS
- Neues-Dynamo -Name <Name> -ValidateSet <ValidateSet>
+.INPUTS ```Neues-Dynamo -Name <Name> -ValidateSet <ValidateSet>```
 
-.OUTPUTS
- Dynamischer Parameter
+.OUTPUTS ```Dynamischer Parameter```
 
 .NOTES
 
