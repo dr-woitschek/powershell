@@ -11,7 +11,7 @@ $VerbosePreference = 'Continue';
 $DebugPreference = 'SilentlyContinue';
 #$DebugPreference = 'Continue';
 #
-[String]$ComputerName = 'ComputernameOderIP';
+[String]$ComputerName = 'Computername-Oder-IP';
 #
 try
  {
