@@ -9,7 +9,6 @@
 - [Hilfe: Base64](https://github.com/dr-woitschek/powershell/tree/main/Hilfe#tobase64string--frombase64string)
 - [Hilfe: Antivirusproduct](https://github.com/dr-woitschek/powershell/tree/main/Hilfe#antivirusproduct-ausgabe)
 
-
 ---
 
 - [meine Beispiele](https://github.com/dr-woitschek/powershell/tree/main/Beispiele)
